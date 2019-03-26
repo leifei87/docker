@@ -2,12 +2,7 @@ pipeline {
   agent any
   stages {
     stage('build docker image'){
-        when {
-          branch 'master'
-        }
-        steps{
-          acrQuickTask azureCredentialsId: 'my service principal', gitPath: '', gitRefspec: '', gitRepo: '', imageNames: [[image: 'ubuntu:v2.0']], local: '/home/azureuser/docker', registryName: 'feiacr', resourceGroupName: 'andy-cf-concourse', tarball: '', variant: ''
-        }
+      acrQuickTask azureCredentialsId: 'my service principal', gitPath: '', gitRefspec: '', gitRepo: 'https://github.com/leifei87/docker.git', imageNames: [[image: 'ubuntu:v3.0']], registryName: 'feiacr', resourceGroupName: 'andy-cf-concourse', sourceType: 'git', tarball: '', variant: ''   
     }
   }
 }
