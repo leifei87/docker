@@ -1,5 +1,5 @@
-pipeline{
-  node {
+pipeline {
+  stages {
     stage('build docker image'){
         when {
           branch 'master'
