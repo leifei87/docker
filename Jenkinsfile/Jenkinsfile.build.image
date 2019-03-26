@@ -1,0 +1,5 @@
+node {
+  stage('build docker image'){
+      acrQuickTask azureCredentialsId: 'my service principal', gitPath: '', gitRefspec: '', gitRepo: '', imageNames: [[image: 'ubuntu:v2.0']], local: '/home/azureuser/docker', registryName: 'feiacr', resourceGroupName: 'andy-cf-concourse', tarball: '', variant: ''
+  }
+}
