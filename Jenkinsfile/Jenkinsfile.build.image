@@ -1,8 +1,6 @@
 pipeline {
   agent {
-    docker {
-        image 'maven:3.6-alpine'
-    }
+   label 'docker-slave'
   }
   stages {
     stage('build docker image'){
