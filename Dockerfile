@@ -1,3 +1,3 @@
 FROM ubuntu
 RUN apt-get update -y && apt-get install -y git wget curl
-ENTRYPOINT hostname -f
+#CMD hostname -f
