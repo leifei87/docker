@@ -1,8 +1,15 @@
 pipeline {
   agent {
-    label 'docker-slave'
+    docker {
+      image 'node:7-alpine'
+    }
   }
   stages {
+    stage('get node version'){
+      steps{
+        sh 'node --version'
+      }
+    }
     stage('build docker image'){
       steps{
         acrQuickTask azureCredentialsId: 'my service principal', gitPath: '', gitRefspec: '', gitRepo: 'https://github.com/leifei87/docker.git', imageNames: [[image: 'ubuntu:v3.0']], registryName: 'feiacr', resourceGroupName: 'andy-cf-concourse', sourceType: 'git', tarball: '', variant: ''   
