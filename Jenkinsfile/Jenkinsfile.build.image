@@ -12,6 +12,9 @@ pipeline {
     }
     stage('build docker image'){
       steps{
+        sh 'whoami;pwd'
+        sh 'git version'
+        sh 'docker version'
         acrQuickTask azureCredentialsId: 'my service principal', gitPath: '', gitRefspec: '', gitRepo: 'https://github.com/leifei87/docker.git', imageNames: [[image: 'ubuntu:v3.0']], registryName: 'feiacr', resourceGroupName: 'andy-cf-concourse', sourceType: 'git', tarball: '', variant: ''   
       }
     }
