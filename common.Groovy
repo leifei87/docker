@@ -1,4 +1,4 @@
-def test-func(){
+def testFunc(){
   println('test function')
 }
 return this
