@@ -11,7 +11,7 @@ pipeline{
         	environment{
         		SSH_KEY = credentials('gitaccount')
         	}
-		    }
+	
             steps {
               script{
 	      	  println(pwd())
