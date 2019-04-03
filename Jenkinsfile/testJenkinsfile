@@ -1,0 +1,37 @@
+pipeline{
+    agent none
+    parameters { string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') }
+    environment{
+    	name = 'andy'
+    	sex = 'male'
+    }
+    options { timestamps() }
+    stages{
+        stage('print env'){
+        	environment{
+        		SSH_KEY = credentials('gitaccount')
+        	}
+		    agent{
+		        docker {
+		            image 'mysql:5'
+		        }
+		    }
+            steps {
+              script{
+                  def common = load “common.groovy”
+                  common.test-func()
+              }
+            	echo "${params.DEPLOY_ENV}"
+            	sh 'printenv'
+            }
+        }
+    }
+    post{
+    	failure{
+    		echo "$name test Failed!"
+    	}
+    	success{
+    		echo "$name test PASS!"
+    	}
+    }
+}
