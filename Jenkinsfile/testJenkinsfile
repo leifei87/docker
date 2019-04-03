@@ -1,5 +1,5 @@
 pipeline{
-    agent none
+    agent any
     parameters { string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') }
     environment{
     	name = 'andy'
@@ -11,14 +11,11 @@ pipeline{
         	environment{
         		SSH_KEY = credentials('gitaccount')
         	}
-		    agent{
-		        docker {
-		            image 'mysql:5'
-		        }
 		    }
             steps {
               script{
-                  def common = load “common.groovy”
+	      	  println(pwd())
+                  def common = load “common.Groovy”
                   common.test-func()
               }
             	echo "${params.DEPLOY_ENV}"
