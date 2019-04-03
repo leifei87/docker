@@ -14,8 +14,8 @@ pipeline{
 	
             steps {
               script{
-	      	  println(pwd())
-                  def common = load “common.Groovy”
+	      	  def rootDir = pwd()
+                  def common = load “${rootDir}/common.Groovy”
                   common.test-func()
               }
             	echo "${params.DEPLOY_ENV}"
