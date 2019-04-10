@@ -26,7 +26,7 @@ pipeline{
 		sh 'mvn --version'
             }
         }
-	stage('Example') {
+	stage('prompt') {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
