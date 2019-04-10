@@ -6,6 +6,9 @@ pipeline{
     	sex = 'male'
     }
     options { timestamps() }
+    tools {
+        maven 'apache-maven-3.6.0' 
+    }
     stages{
         stage('print env'){
         	environment{
