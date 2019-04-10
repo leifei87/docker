@@ -18,7 +18,7 @@ pipeline{
                   def common = load "${rootDir}/common.Groovy"
                   common.testFunc()
               }
-            	echo "${params.DEPLOY_ENV}"
+            	echo "${DEPLOY_ENV}"
             	sh 'printenv'
             }
         }
