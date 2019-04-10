@@ -23,6 +23,7 @@ pipeline{
               }
             	echo "${DEPLOY_ENV}"
             	sh 'printenv'
+		sh 'mvn --version'
             }
         }
     }
